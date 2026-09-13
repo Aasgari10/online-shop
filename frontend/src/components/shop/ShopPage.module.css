@@ -1,0 +1,174 @@
+/* src/components/shop/ShopPage.module.css */
+
+/* کانتینر اصلی */
+.container {
+  min-height: 100vh;
+  background-color: #f3f4f6;
+  padding: 1.5rem 0;
+}
+
+.innerContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* ===== چیدمان دوستونی ===== */
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+@media (min-width: 1024px) {
+  .layout {
+    flex-direction: row;
+  }
+}
+
+/* ===== محصولات ===== */
+.productsWrapper {
+  flex: 1;
+  order: 1;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .productsWrapper {
+    order: 2;
+    width: auto;
+  }
+}
+
+/* ===== فیلترها (با sticky) ===== */
+.filtersWrapper {
+  width: 100%;
+  flex-shrink: 0;
+  order: 2;
+}
+
+@media (min-width: 1024px) {
+  .filtersWrapper {
+    width: 320px; /* معادل w-80 */
+    order: 1;
+    /* اینجا sticky اعمال میشه */
+    position: sticky;
+    top: 80px; /* فاصله از بالای صفحه برای هدر */
+    align-self: flex-start;
+    /* برای اینکه وقتی به انتهای کانتینر رسید متوقف بشه */
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+  }
+}
+
+/* ===== کارت فیلترها ===== */
+.filterCard {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f3f4f6;
+}
+
+.filterTitle {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: #1f2937;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filterTitle span {
+  display: inline-block;
+  width: 4px;
+  height: 24px;
+  background-color: #800E2F;
+  border-radius: 9999px;
+}
+
+/* ===== فیلدهای فرم ===== */
+.formGroup {
+  margin-bottom: 0.75rem;
+}
+
+.formGroup label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.25rem;
+}
+
+.formGroup select,
+.formGroup input {
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  background-color: #f9fafb;
+  transition: all 0.2s;
+}
+
+.formGroup select:focus,
+.formGroup input:focus {
+  outline: none;
+  border-color: #800E2F;
+  box-shadow: 0 0 0 2px rgba(128, 14, 47, 0.2);
+}
+
+.priceGroup {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.priceGroup input {
+  width: 50%;
+}
+
+/* ===== چک‌باکس تخفیف ===== */
+.discountCheckbox {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  background-color: #f9fafb;
+  border-radius: 0.75rem;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 0.75rem;
+}
+
+.discountCheckbox input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: #800E2F;
+}
+
+.discountCheckbox label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  cursor: pointer;
+}
+
+/* ===== دکمه حذف فیلترها ===== */
+.clearButton {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.5rem 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background-color: #f3f4f6;
+  color: #374151;
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.clearButton:hover {
+  background-color: #e5e7eb;
+}
